@@ -97,7 +97,7 @@ const userPresenceType: UserPresenceType = {
 
 const getPresence = async () => {
   const presenceEndpoint = "https://presence.roblox.com/v1/presence/users";
-  
+
   const response = await fetch(presenceEndpoint, {
     method: "POST",
     headers: {
