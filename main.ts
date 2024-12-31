@@ -90,8 +90,8 @@ if (!robloxCookie) {
 const userPresenceType: UserPresenceType = {
   0: "Offline",
   1: "Online",
-  2: "InGame",
-  3: "InStudio",
+  2: "In Game",
+  3: "In Studio",
   4: "Invisible",
 };
 
