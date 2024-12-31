@@ -72,7 +72,7 @@ const robloxCookie: string = Deno.env.get("ROBLOX_COOKIE")!;
 const requestData = {
   userIds: [1],
 };
-const timespan = 2 * 60 * 1000; // 2 minutes in ms
+const timespan = 10 * 60 * 1000; // 10 minutes in ms
 
 if (!hook) {
   throw new Error(
