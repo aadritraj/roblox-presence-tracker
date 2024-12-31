@@ -134,6 +134,7 @@ const makeEmbed = async (userPresence: UserPresence) => {
   const userInfo: UserInfo = await userInfoRequest.json();
 
   const lastOnline = new Date(userPresence.lastOnline);
+  const lastOnlineEpoch = Math.floor(lastOnline.getTime() / 1000);
 
   if (userPresence.gameId) {
     const gamesEndpoint = "https://games.roblox.com/v1/games";
@@ -161,7 +162,7 @@ const makeEmbed = async (userPresence: UserPresence) => {
             },
             {
               name: "Last Online",
-              value: lastOnline.toLocaleTimeString("en-US"),
+              value: `<t:${lastOnlineEpoch}:R>`,
             },
             {
               name: `Game (${userPresence.universeId})`,
@@ -191,7 +192,7 @@ const makeEmbed = async (userPresence: UserPresence) => {
           },
           {
             name: "Last Online",
-            value: lastOnline.toLocaleTimeString("en-US"),
+            value: `<t:${lastOnlineEpoch}:R>`,
           },
         ],
         color: 0x1bf588,
