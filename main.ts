@@ -1,4 +1,5 @@
 import "@std/dotenv/load";
+import {delay} from "@std/async/delay";
 
 type ThumbnailsBody = {
   data: [
@@ -73,6 +74,7 @@ const requestData = {
   userIds: [1],
 };
 const timespan = 10 * 60 * 1000; // 10 minutes in ms
+const timeBetweenPresenceRequests = 5 * 1000; // 5 seconds in ms
 
 if (!hook) {
   throw new Error(
@@ -216,5 +218,8 @@ setInterval(async () => {
       },
       body: JSON.stringify(embedPayload),
     });
+
+    // delay time between requests to prevent rate limiting
+    await delay(timeBetweenPresenceRequests);
   }
 }, timespan);

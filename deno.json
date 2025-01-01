@@ -3,6 +3,7 @@
     "dev": "deno run -N -E -R --watch main.ts"
   },
   "imports": {
+    "@std/async": "jsr:@std/async@^1.0.9",
     "@std/dotenv": "jsr:@std/dotenv@^0.225.3"
   }
 }
