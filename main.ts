@@ -1,5 +1,5 @@
 import "@std/dotenv/load";
-import {delay} from "@std/async/delay";
+import { delay } from "@std/async/delay";
 
 type ThumbnailsBody = {
   data: [
@@ -203,7 +203,7 @@ const makeEmbed = async (userPresence: UserPresence) => {
   };
 };
 
-setInterval(async () => {
+const trackPresence = async () => {
   const presence = await getPresence();
 
   for (let i = 0; i < presence.userPresences.length; i++) {
@@ -218,8 +218,16 @@ setInterval(async () => {
       },
       body: JSON.stringify(embedPayload),
     });
-
-    // delay time between requests to prevent rate limiting
-    await delay(timeBetweenPresenceRequests);
   }
-}, timespan);
+};
+
+const loopOverPresence = async () => {
+  await trackPresence();
+
+  // delay time between requests to prevent rate limiting
+  await delay(timeBetweenPresenceRequests);
+};
+
+// start the main loop
+await loopOverPresence();
+setInterval(loopOverPresence, timespan);
