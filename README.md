@@ -1,25 +1,24 @@
-# roblox-presence-tracker 
-built with [deno 2](deno.com) 
+# roblox-presence-tracker
 
-typescript script to track roblox users' playing games/last online.
-created for practicing interaction with external apis.
+[![Built with the Deno Standard Library](https://img.shields.io/badge/Built_with_Deno-black?logo=deno)](https://deno.com)
+[![Built with the Deno Standard Library](https://img.shields.io/badge/Built_with_std-blue?logo=deno)](https://jsr.io/@std)
 
-this uses the legacy web apis for roblox. functionality is not guaranteed.
-this is due to the lack of functionality of the new open cloud apis.
+typescript script to track roblox users' playing games/last online. created for
+practicing interaction with external apis.
+
+this uses the legacy web apis for roblox. functionality is not guaranteed. this
+is due to the lack of functionality of the new open cloud apis.
 
 ## setup
-copy ``.env.example`` or rename to ``.env``
-fill in the fields with the required values.
 
-``ROBLOX_COOKIE`` must be formatted in a curl-accepted manner for cookies.
+configure enviornment variables as in `.env.example`
 
-in ``main.ts``, modify ``requestData`` with the user ids you wish to track.
-``timespan`` can be modified to modify the time (in ms) between requests.
-
-you may be ratelimited if this is too low
+in `main.ts`, modify the config, which includes `requestData`, `timespan`, and
+`timeBetweenPresenceRequests`. make sure to make these so that you don't get
+ratelimited
 
 ## run it
-in whichever terminal emulator (or tty), run:
+
 ```bash
 deno task dev
 ```
