@@ -111,7 +111,7 @@ const getPresence = async () => {
   });
 
   if (!response.ok) {
-    throw new Error("WAAAAAAAAAAAA");
+    throw new Error("Presence request failed!");
   }
 
   return response.json();
